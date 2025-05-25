@@ -1,0 +1,35 @@
+﻿# указывайте последнюю доступную вам версию CMake
+cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
+
+# название проекта
+project(Algorithms-and-Data-Structures)
+
+# затем следует список инструкций для подключения проектов из подкаталогов
+
+include(cmake/function.cmake)         # подхватываем функции, реализованные в файле function.cmake
+                                      # для простоты мы объединили наборы команд для создания статической библиотеки
+add_subdirectory(lib_Bracket)	
+add_subdirectory(lib_SecList)
+add_subdirectory(lib_loop)
+add_subdirectory(lib_StackOnList)
+add_subdirectory(lib_Iterator)
+add_subdirectory(lib_Polynom)
+add_subdirectory(lib_Polish)
+add_subdirectory(lib_Btree) 
+add_subdirectory(lib_list_unsorted)
+add_subdirectory(lib_mas_unsorted)
+add_subdirectory(lib_mas_sorted)
+add_subdirectory(lib_HeshMap)
+add_subdirectory(lib_Stack)	
+add_subdirectory(lib_Queue )							      # и для создания исполняемого проекта в отдельные функции
+add_subdirectory(lib_List)
+add_subdirectory(lib_DMassive)
+add_subdirectory(lib_easy_example)    # подключаем дополнительный CMakeLists.txt из подкаталога с именем lib_easy_example
+add_subdirectory(main)                # подключаем дополнительный CMakeLists.txt из подкаталога с именем main
+
+option(BTEST "build test?" ON)        # указываем подключаем ли google-тесты (ON или YES) или нет (OFF или NO)
+
+if(BTEST)                             # если тесты подключены
+    add_subdirectory(gtest)           # подключаем дополнительный CMakeLists.txt из подкаталога с именем gtest
+    add_subdirectory(tests)           # подключаем дополнительный CMakeLists.txt из подкаталога с именем test
+endif()
