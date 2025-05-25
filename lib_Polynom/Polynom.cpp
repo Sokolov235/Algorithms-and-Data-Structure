@@ -1,1 +1,0 @@
-#include "../lib_Polynom/Polynom.h"

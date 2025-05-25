@@ -1,4 +1,4 @@
-#define LIST_UNSORTED
+#define HESH_MAP
 
 
 #ifdef HESH_MAP
